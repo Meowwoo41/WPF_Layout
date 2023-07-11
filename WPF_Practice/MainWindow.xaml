@@ -1,0 +1,205 @@
+﻿<Window x:Class="WPF_Practice.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Practice"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="1000" 
+        WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResizeWithGrip"
+        WindowStyle="None"
+        AllowsTransparency="True"
+        Background="Transparent">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ScrollViewDictionary.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Border BorderThickness="1" BorderBrush="LightGray"  CornerRadius="10,10,0,0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"></RowDefinition>
+                    <RowDefinition></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid Background="Transparent"
+                      MouseMove="Drag_ClicK">
+                    <Border Background="#FF9224" CornerRadius="10,0,0,0">
+                    <TextBlock Text="Marvel"
+                           HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           Foreground="White"
+                           FontSize="30"
+                           FontFamily="Consolas"
+                           Padding="20 10 200 10"/>
+                    </Border>
+                </Grid>
+                <ScrollViewer Template="{StaticResource MyScrollViewer}"
+                      VerticalScrollBarVisibility="Auto" 
+                      Grid.Column="0" Grid.Row="1"
+                      Background="#272727">
+                    <Grid>
+                        <StackPanel>
+                            <StackPanel.Resources>
+                                <Style TargetType="Button">
+                                    <Setter Property="Background"
+                                            Value="Transparent"/>
+                                    <Setter Property="VerticalContentAlignment"
+                                            Value="Center"/>
+                                    <Setter Property="HorizontalContentAlignment"
+                                            Value="Left"/>
+                                    <Setter Property="Margin"
+                                            Value="0 15 0 15"/>
+                                    <Setter Property="BorderThickness"
+                                             Value="0"/>
+                                    <Setter Property="Template">
+                                        <Setter.Value>
+                                            <ControlTemplate TargetType="Button">
+                                                <Border Background="{TemplateBinding Background}">
+                                                    <ContentPresenter HorizontalAlignment="Left" VerticalAlignment="Center" />
+                                                </Border>
+                                            </ControlTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver" Value="True">
+                                            <Setter Property="Background" Value="Black" />
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                                <Style TargetType="Label">
+                                    <Setter Property="Foreground"
+                                            Value="White"/>
+                                    <Setter Property="FontFamily"
+                                            Value="Consolas"/>
+                                    <Setter Property="FontSize"
+                                            Value="20"/>
+                                    <Setter Property="Width"
+                                            Value="250"/>
+                                    <Style.Triggers>
+                                        <Trigger Property="IsMouseOver"
+                                                 Value="True">
+                                            <Setter Property="Foreground"
+                                                    Value="#FF9224"/>
+                                        </Trigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </StackPanel.Resources>
+                            <Button Click="btn_Page" Name="Dashboard">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="D:\VS2022練習\WpfApp1\WPF_Practice\ICON\應用.png"
+                                           Margin="20 0 0 0"/>
+                                    <Label Content="Dashboard"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Click="btn_Page" Name="UIElements">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="D:\VS2022練習\WpfApp1\WPF_Practice\ICON\監視器.png"
+                                           Margin="20 0 0 0"/>
+                                    <Label Content="UI Elements"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Click="btn_Page" Name="Charts">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="D:\VS2022練習\WpfApp1\WPF_Practice\ICON\統計柱形圖.png"
+                                           Margin="20 0 0 0"/>
+                                    <Label Content="Charts"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Click="btn_Page" Name="TabsPanels">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="D:\VS2022練習\WpfApp1\WPF_Practice\ICON\桌子.png"
+                                           Margin="20 0 0 0"/>
+                                    <Label Content="Tabs＆Panels"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Click="btn_Page" Name="ResponsiveTables">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="D:\VS2022練習\WpfApp1\WPF_Practice\ICON\表頁腳.png"
+                                           Margin="20 0 0 0"/>
+                                    <Label Content="Responsive Tables"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Click="btn_Page" Name="Forms">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="D:\VS2022練習\WpfApp1\WPF_Practice\ICON\首要的關鍵.png"
+                                           Margin="20 0 0 0"/>
+                                    <Label Content="Forms"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Click="btn_Page" Name="MultiLevelDropdown">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="D:\VS2022練習\WpfApp1\WPF_Practice\ICON\組織結構圖2.png"
+                                           Margin="20 0 0 0"/>
+                                    <Label Content="Multi-Level Dropdown"/>
+                                </StackPanel>
+                            </Button>
+                            <Button Click="btn_Page" Name="EmptyPage">
+                                <StackPanel Orientation="Horizontal">
+                                    <Image Source="D:\VS2022練習\WpfApp1\WPF_Practice\ICON\文檔.png"
+                                           Margin="20 0 0 0"/>
+                                    <Label Content="Empty Page"/>
+                                </StackPanel>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </ScrollViewer>
+                <Grid Grid.Column="1" Grid.Row="0"
+                      Background="Transparent" MouseMove="Drag_ClicK">
+                    <Border Background="#272727" CornerRadius="0,10,0,0">
+                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+                            <TextBlock Text="▶ Dashboard" Name="PageName"
+                                       FontSize="20"
+                                       Foreground="White"
+                                       FontFamily="Consolas"
+                                       Margin="20 5 5 5"/>
+                        </StackPanel>
+                    </Border>
+                    <StackPanel HorizontalAlignment="Right" VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                        <Button Content="–"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Foreground="white"
+                        FontSize="20"
+                        Margin="0 0 10 0"
+                        Click="Minimize_Click"/>
+                        <Button Content="❐"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Foreground="white"
+                        FontSize="15"
+                        Margin="10 0 10 0"
+                        Click="FullScreen_Click"/>
+                        <Button Content="×"
+                        Background="Transparent"
+                        BorderThickness="0"
+                        Foreground="white"
+                        FontSize="20"
+                        Margin="10 0 10 0"
+                        Click="Close_Click"/>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Column="1" Grid.Row="1"
+                      Background="#3C3C3C">
+                    <ScrollViewer Template="{StaticResource MyScrollViewer}"
+                      VerticalScrollBarVisibility="Auto"
+                      HorizontalScrollBarVisibility="Auto"
+                      Grid.Column="0" Grid.Row="1"
+                      Background="	#4F4F4F	">
+                        <Frame Name="FramePage"
+                           NavigationUIVisibility="Hidden">
+                        </Frame>
+                    </ScrollViewer>
+                </Grid>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>
